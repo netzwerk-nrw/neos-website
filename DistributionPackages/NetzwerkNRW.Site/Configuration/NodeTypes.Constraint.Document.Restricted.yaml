@@ -1,0 +1,24 @@
+##
+# Adding this as superType will prevent inserting this page type below normal pages
+#
+# [Youtube Tutorial explaining constraints](https://www.youtube.com/watch?v=ZCRYsYvxXFI&t=247s)
+#
+# Example:
+# Let's say you have a have a news overview of news pages below. To force
+# news pages to be created only directly below:
+#
+# 'NetzwerkNRW.Site:Document.NewsOverview':
+#   superTypes:
+#     'NetzwerkNRW.Site:Document.AbstractPage': true
+#   constraints:
+#     nodeTypes:
+#       'NetzwerkNRW.Site:Document.Restricted': false
+#
+# 'NetzwerkNRW.Site:Content.News':
+#   superTypes:
+#     'NetzwerkNRW.Site:Document.AbstractPage': true
+#     'NetzwerkNRW.Site:Constraint.Document.Restricted': true
+#
+##
+'NetzwerkNRW.Site:Constraint.Document.Restricted':
+  abstract: true

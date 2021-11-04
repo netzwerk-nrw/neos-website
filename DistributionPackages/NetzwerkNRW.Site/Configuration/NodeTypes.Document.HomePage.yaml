@@ -1,0 +1,20 @@
+
+'NetzwerkNRW.Site:Document.HomePage':
+  superTypes:
+    'NetzwerkNRW.Site:Document.AbstractPage': true
+    'NetzwerkNRW.Site:Constraint.Document.Restricted': true
+    'NetzwerkNRW.Site:Mixin.InspectorGeneral': true
+  ui:
+    label: i18n
+    icon: globe
+  properties:
+    footerItems:
+      type: references
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: general
+          editorOptions:
+            nodeTypes:
+              - 'Neos.Neos:Document'

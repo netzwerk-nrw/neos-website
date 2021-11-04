@@ -1,0 +1,31 @@
+{
+    "name": "netzwerk/neos-website-distribution",
+    "type": "project",
+    "description": "Neos distribution for netzwerk-nrw.info",
+    "license": "GPL-3.0-or-later",
+    "support": {
+        "email": "hello@netzwerk-nrw.info"
+    },
+    "config": {
+        "vendor-dir": "Packages/Libraries",
+        "bin-dir": "bin",
+        "platform": {
+            "php": "7.4"
+        }
+    },
+    "require": {
+        "netzwerknrw/site": "@dev"
+    },
+    "repositories": {
+        "distributionPackages": {
+            "type": "path",
+            "url": "./DistributionPackages/*"
+        }
+    },
+    "scripts": {
+        "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+        "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+    }
+}

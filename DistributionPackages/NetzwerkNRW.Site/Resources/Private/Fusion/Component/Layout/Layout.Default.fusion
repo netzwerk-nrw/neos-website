@@ -1,0 +1,9 @@
+prototype(NetzwerkNRW.Site:Component.Layout.Default) < prototype(Neos.Fusion:Component) {
+    content = ''
+
+    renderer = afx`
+        <NetzwerkNRW.Site:Component.Header />
+        {props.content}
+        <NetzwerkNRW.Site:Component.Footer />
+    `
+}

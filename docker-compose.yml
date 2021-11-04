@@ -1,0 +1,41 @@
+# NEOS DEVELOPMENT ENVIRONMENT
+#
+# For instructions how to use docker-compose, see
+# https://docs.neos.io/cms/installation-development-setup/docker-and-docker-compose-setup#docker-compose-cheat-sheet
+version: '3.5'
+services:
+
+  # Neos CMS
+  neos:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      FLOW_CONTEXT: 'Development/Docker'
+    volumes:
+      - ./composer.json:/app/composer.json:cached
+      - ./composer.lock:/app/composer.lock:cached
+      - ./Configuration/:/app/Configuration/:cached
+      - ./DistributionPackages/:/app/DistributionPackages/:cached
+      # if you work on other packages, you need to add them here.
+      #- ./Packages/Application/:/app/Packages/Application/:cached
+      #- ./Packages/Carbon/:/app/Packages/Carbon/:cached
+      #- ./Packages/Framework/:/app/Packages/Framework/:cached
+      #- ./Packages/Libraries/:/app/Packages/Libraries/:cached
+      #- ./Packages/Plugins/:/app/Packages/Plugins/:cached
+      - ./Packages/Sites/:/app/Packages/Sites/
+    ports:
+      - 8081:8081
+
+  # DB
+  db:
+    image: mariadb:10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: 'db'
+    volumes:
+      - db:/var/lib/mysql
+    ports:
+      - 13306:3306
+
+volumes:
+  db:

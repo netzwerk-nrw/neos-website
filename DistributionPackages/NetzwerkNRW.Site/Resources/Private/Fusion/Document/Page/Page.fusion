@@ -1,0 +1,13 @@
+prototype(NetzwerkNRW.Site:Document.Page) < prototype(NetzwerkNRW.Site:Document.AbstractPage) {
+    body.content = Neos.Fusion:Component {
+        main = Neos.Neos:ContentCollection {
+            nodePath = 'main'
+        }
+
+        renderer = afx`
+            <main class="main">
+                {props.main}
+            </main>
+        `
+    }
+}
