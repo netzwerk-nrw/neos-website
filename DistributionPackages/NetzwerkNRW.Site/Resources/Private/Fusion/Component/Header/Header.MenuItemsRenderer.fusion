@@ -3,13 +3,14 @@ prototype(NetzwerkNRW.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.
 
     @if.has = ${this.items}
     renderer = afx`
-        <ul class="navigation">
-            <Neos.Fusion:Loop items={props.items} itemName="menuItem" @children="itemRenderer">
-                <li class={'navigation-item ' + (menuItem.state ? 'navigation-item--state-' + menuItem.state : '') }>
+        <div id="navbarHeader" class="navbar-menu">
+            <div class="navbar-start">
+                <Neos.Fusion:Loop items={props.items} itemName="menuItem" @children="itemRenderer">
                     <Carbon.Link:Link
                         node={menuItem.node}
                         backendLink={true}
-                        renderDefaultTagIfNoLink={true}>
+                        renderDefaultTagIfNoLink={true}
+                        additionalClass={'navbar-item' + (menuItem.state == 'current' ? ' is-active' : '') }>
                         { menuItem.label }
                     </Carbon.Link:Link>
                     <!--
@@ -17,8 +18,18 @@ prototype(NetzwerkNRW.Site:Component.Header.MenuItemsRenderer) < prototype(Neos.
                         items={menuItem.subItems}
                     />
                     //-->
-                </li>
-            </Neos.Fusion:Loop>
-        </ul>
+                </Neos.Fusion:Loop>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <!--<a class="button is-primary">
+                            <strong>Sign up</strong>
+                        </a>-->
+                        <a class="button is-light">Log in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     `
 }

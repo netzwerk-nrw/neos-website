@@ -20,9 +20,22 @@ prototype(NetzwerkNRW.Site:Component.Header) < prototype(Neos.Fusion:Component) 
     ##
 
     renderer = afx`
-        <header class="main-header">
-            <a class="logo" href={props.homeLink}>Hausgemeinden-Netzwerk in NRW</a>
-            <NetzwerkNRW.Site:Component.Header.MenuItemsRenderer items={props.menuItems} />
+        <header class="section">
+            <div class="container">
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href={props.homeLink}>
+                            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+                        </a>
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarHeader">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <NetzwerkNRW.Site:Component.Header.MenuItemsRenderer items={props.menuItems} />
+                </nav>
+            </div>
         </header>
     `
 

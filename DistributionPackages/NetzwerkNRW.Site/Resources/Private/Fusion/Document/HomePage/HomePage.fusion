@@ -9,9 +9,11 @@ prototype(NetzwerkNRW.Site:Document.HomePage) < prototype(NetzwerkNRW.Site:Docum
         }
 
         renderer = afx`
-            <main class="main">
-                {props.main}
-            </main>
+            <section class="main section">
+                <div class="container">
+                    {props.main}
+                </div>
+            </section>
         `
     }
 }

@@ -5,9 +5,11 @@ prototype(NetzwerkNRW.Site:Document.Page) < prototype(NetzwerkNRW.Site:Document.
         }
 
         renderer = afx`
-            <main class="main">
-                {props.main}
-            </main>
+             <section class="section">
+                <div class="main container">
+                    {props.main}
+                </div>
+            </section>
         `
     }
 }

@@ -8,11 +8,13 @@ prototype(NetzwerkNRW.Site:Document.NotFoundPage) < prototype(NetzwerkNRW.Site:D
 
     body.content = Neos.Fusion:Component {
         renderer = afx`
-            <main class="main">
-                <h1>{I18n.translate('NetzwerkNRW.Site:NodeTypes.Document.NotFoundPage:errorMessage')}</h1>
-                <a href="/">{I18n.translate('NetzwerkNRW.Site:NodeTypes.Document.NotFoundPage:backHome')}</a>
-                <br /><br /><br /><br />
-            </main>
+            <section class="section">
+                <div class="container is-max-widescreen">
+                    <h1>{I18n.translate('NetzwerkNRW.Site:NodeTypes.Document.NotFoundPage:errorMessage')}</h1>
+                    <a href="/">{I18n.translate('NetzwerkNRW.Site:NodeTypes.Document.NotFoundPage:backHome')}</a>
+                    <br /><br /><br /><br />
+                </div>
+            </section>
         `
     }
 }
